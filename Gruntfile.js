@@ -328,7 +328,10 @@ module.exports = function (grunt) {
     'uglify',
     'vulcanize',
     'usemin',
-    'minifyHtml',
+    'minifyHtml'
+  ]);
+
+  grunt.registerTask('deploy', [
     'buildcontrol'
   ]);
 

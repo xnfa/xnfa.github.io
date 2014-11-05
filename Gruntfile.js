@@ -254,6 +254,21 @@ module.exports = function (grunt) {
         }]
       }
     },
+    // Deploy to github pages
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      pages: {
+        options: {
+          remote: 'git@github.com:xnfa/xnfa.github.io.git',
+          branch: 'master'
+        }
+      }
+    },
     // See this tutorial if you'd like to run PageSpeed
     // against localhost: http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/
     pagespeed: {
@@ -313,7 +328,8 @@ module.exports = function (grunt) {
     'uglify',
     'vulcanize',
     'usemin',
-    'minifyHtml'
+    'minifyHtml',
+    'buildcontrol'
   ]);
 
   grunt.registerTask('default', [
